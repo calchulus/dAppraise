@@ -1,0 +1,172 @@
+<head>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='bignumber.js'></script>
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/7.2.1/bignumber.min.js"></script>
+<script> 
+//import { Dharma, Web3 } from "@dharmaprotocol/dharma.js";
+//const host = "http://localhost:8545";
+//const provider = new Web3.providers.HttpProvider(host);
+const provider = window.web3.currentProvider;
+const dharma = new Dharma(provider);
+    const accounts = await dharma.blockchain.getAccounts();
+
+const loanRequest = await LoanRequest.create(dharma, {
+ vals: null;
+});
+
+</script>
+
+<body>
+    <div class="columns">
+        <div class="column is-5"> 
+<div style="margin: 30px;">
+    <form id="formId" onsubmit="return submitForm()">
+        <h1 style="font-size: 2.75vw;">dAppraise Request Funds <hr style="margin: 10px 0 10px 0;"></h1>
+  
+<div id="principle-line">
+ <div class="field inline" id="principal-denom">
+  <label class="label">Principal Token</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="SYMBOL">
+  </div>
+</div>   
+    
+<div class="field inline" id="principal-amount">
+  <label class="label">Principal Amount</label>
+  <div class="control">
+    <input class="input" type="number" placeholder="0">
+  </div>
+</div>
+    </div>  
+ <div class="field" id="collateral-denom">
+  <label class="label">Collateral Denomination(s)</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="SYMBOLS, SEPARATED, BY, COMMAS">
+  </div>
+</div>    
+    
+   <div class="field" id="collateral-amount">
+  <label class="label">Collateral Amount(s)</label>
+        <p class="help">If multi-collateral, provide corresponding amounts, separated by commas</p>    
+  <div class="control">
+    <input class="input" type="text" placeholder="0">
+  </div>
+</div>
+    
+<div class="field inline" id="interest-rate">
+  <label class="label">Interest Rate (%)</label> 
+  <div class="control">
+    <input class="input" type="number" placeholder="0%">
+  </div>
+</div>
+    
+    <div>
+<div class="field inline" id="term">
+  <label class="label">Term Length</label> 
+  <div class="control">
+    <input class="input" type="number" placeholder="3">
+  </div>
+</div>
+    
+<div class="field inline" id="term-unit">
+  <label class="label">Term Time Units</label> 
+  <div class="control">
+    <input class="input" type="text" placeholder="months">
+  </div>
+</div>
+    </div>
+   <div id="expiry-line">
+<div class="field inline" id="duration">
+  <label class="label">Expiry Time</label> 
+  <div class="control">
+    <input class="input" type="number" placeholder="1">
+  </div>
+</div>
+    
+<div class="field inline" id="duration-unit">
+  <label class="label">Expiry Unit </label> 
+  <div class="control">
+    <input class="input" type="text" placeholder="week">
+  </div>
+</div>
+       </div>
+
+<div class="field">
+  <label class="label">Message</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Feel free to tell us why you need this loan">
+  </div>
+</div>
+
+<!--
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      I agree to the <a href="#">terms and conditions</a>
+    </label>
+  </div>
+</div>
+-->
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link" value="subit">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-text">Cancel</button>
+  </div>
+</div>
+    </form>
+</div>
+</div>
+	</div>
+</body>
+
+<script>
+     function submitForm() {  
+$('#formId').submit(function() {
+    // get an associative array of the values
+    var values = {};
+    $inputs.each(function() {
+        values[this.name] = $(this).val();
+    });
+    console.log(values)
+});
+     }
+</script>
+
+<!--
+<script>
+    
+    function submitForm() {
+//    var collateralTokenstring =  $('container').find('input').val()("collateral-denom");
+    var coltokenList = collateralTokenstring.split(",");
+    console.log(coltokenList.length);
+    var collateralAmountstring = document.getElementById("collateral-amount")[0].value;
+    var colList = collateralAmountstring.split(",");
+    console.log(colList.length);
+const terms = {
+    principalAmount: document.getgetElementById("principal-amount")[0].value,
+    principalToken: document.getElementsByName("principal-denom")[0].value,
+    collateralTokens: coltokenList,
+    collateralAmount: colList,
+    interestRate: document.getElementsByName("interest-rate")[0].value,
+    termDuration: document.getElementsByName("term")[0].value,
+    termUnit: document.getElementsByName("term-unit")[0].value,
+    expiresInDuration: document.getElementsByName("duration")[0].value,
+    expiresInUnit: document.getElementsByName("duration-unit")[0].value,
+}
+console.log(terms);
+        alert("The form was submitted");
+    }
+//await loanRequest.signAsDebtor();
+</script>-->
+
+<script>
+var BigNumber = require('bignumber.js');
+</script>
