@@ -1,3 +1,4 @@
+
 /**
  * Define an address for a debtor who will own the collateral on the blockchain.
  * Replace this with an address that you own, such as your MetaMask account address.
@@ -12,7 +13,7 @@ const TX_DEFAULTS = {
 };
 
 console.log("Loading the ERC721 contract...");
-dharma.contracts.loadMintableERC721ContractAsync(TX_DEFAULTS).then(async (erc721) => {
+@dharmaprotocol.contracts.loadMintableERC721ContractAsync(TX_DEFAULTS).then(async (erc721) => {
   // ...
     
      // Find out the number of tokens that have been minted thus far.
@@ -39,8 +40,9 @@ dharma.contracts.loadMintableERC721ContractAsync(TX_DEFAULTS).then(async (erc721
 
     if (!tokenExists) {
         throw new Error("Something went wrong and the token doesn't exist!");
-    }
-    
+    };
+});
+                                                                   
       /*
      * Once this has completed, the debtor will have an ERC721 token that they can use
      * for collateral for a loan on Dharma Protocol.
