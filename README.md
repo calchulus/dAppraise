@@ -1,7 +1,7 @@
 # dAppraise
 A protocol for reducing overcollateralization for sufficient backing of loans, stablecoins, and other cryptofinancial instruments.
 
-[Full idea spec at https://bit.ly/dappraise](bit.ly/dappraise)
+[Full idea spec at bit.ly/dappraise](https://bit.ly/dappraise)
 
 tl;dr 
 A way for individuals to post a hybrid of fungible and nonfungible assets as collateral for loans - the individual with no cryptoassets can tokenize a real world asset, and with the help of a friend or proof of existence and ownership of this real world asset (say, a mini fridge), trade with someone who is willing to take on part or all of the risk of evaluating the nonfungible asset, which is less liquid and harder to sell for capital. The individual does not want to see the item repossessed, as they have greater utility value out of holding it, and thus are incentivized to abide by the terms of loan and not act maliciously, to a certain degree mimicking the effect of overcollateralization.
